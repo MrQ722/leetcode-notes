@@ -24,3 +24,15 @@ class Solution:
                 invert(new.left,old.right)
         invert(newRoot,root)
         return newRoot
+
+# 看到一个更简洁的递归，不需要再函数内部再构造函数
+# 注意37行，必须在一行写，保证交换同时进行，佩服
+# 执行用时：40ms，击败73.48%
+# 内存消耗: 13.4MB, 击败21.97%
+
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+        return root
