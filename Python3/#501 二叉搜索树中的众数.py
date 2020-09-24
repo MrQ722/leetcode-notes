@@ -47,8 +47,14 @@ class Solution:
 # 二叉树的遍历分深度优先遍历（DFS）和宽度优先遍历（BFS）。其中深度优先遍历又分为先序遍历，中序遍历，后序遍历。
 # 因为二叉树是递归类数据结构，因此大部分关于二叉树的操作都可以通过递归实现。
 
+#       A
+#     /   \
+#    B     C
+#   / \     \
+#  D   E     F
+
 # 1.1先序遍历
-# 遍历顺序：根节点——左子节点——右子节点
+# 遍历顺序：根节点——左子节点——右子节点(A-B-D-E-C-F）
 # 递归实现
 def preorder(root):
     if not root:
@@ -67,7 +73,7 @@ def preorder(root):
             stack.append(s.left)
 
 # 1.2中序遍历
-# 遍历顺序：左子节点——根节点——右子节点
+# 遍历顺序：左子节点——根节点——右子节点（D-B-E-A-C-F）
 # 递归实现：
 def inorder(root):
     if not root:
@@ -87,7 +93,7 @@ def inorder(root):
         root = root.right
 
 # 1.3后序遍历
-# 遍历顺序：左子节点——右子节点——根节点
+# 遍历顺序：左子节点——右子节点——根节点（D-E-B-F-C-A）
 # 递归实现：
 def postorder(root):
     if not root:
@@ -118,7 +124,7 @@ def postorder(root):
             root = None
 
 # 1.4层次遍历
-# 遍历顺序：一层一层的遍历
+# 遍历顺序：一层一层的遍历（A-B-C-D-E-F）
 # 迭代实现：
 def BFS(root):
     queue = [root]
