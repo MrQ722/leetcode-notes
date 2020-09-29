@@ -14,3 +14,23 @@ class Solution:
         if not root:
             return []
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+
+    
+
+# 迭代
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        stack = []
+        sub = []
+        while stack or root:
+            while root:               
+                stack.append(root)
+                if root.left:          
+                    root = root.left 
+                else:
+                    root = root.right     
+            s = stack.pop()
+            sub.append(s.val)
+            if stack and s == stack[-1].left: 
+                root = stack[-1].right
+        return sub
