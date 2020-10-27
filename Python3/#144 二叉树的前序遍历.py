@@ -19,5 +19,17 @@ class Solution:
         return sub
         
 # 迭代
-# 执行用时：56ms，击败8.19%
-# 内存消耗13.5MB，击败5.69%
+# 执行用时：36ms，击败87.61%
+# 内存消耗13.4MB，击败51.44%
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        sub = []
+        stack = [root]
+        while stack:
+            s = stack.pop()
+            if s:
+                sub.append(s.val)
+                stack.append(s.right)
+                stack.append(s.left)
+        return sub
