@@ -22,12 +22,10 @@ class Solution(object):
             n = len(nums)-1
             left = 0
             right = n
-            while(left<right):
+            while(left<=right): 
                 mid = (left+right)//2
-                if nums[mid] > target:
+                if nums[mid] >= target:# 保证target+1超出序列范围的情况仍能成立
                     right = mid-1
-                if nums[mid] == target:
-                    right = mid
                 if nums[mid] < target:
                     left = mid+1
             return left
